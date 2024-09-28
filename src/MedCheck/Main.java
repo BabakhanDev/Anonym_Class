@@ -10,7 +10,6 @@ import MedCheck.models.Doctor;
 import MedCheck.models.Hospital;
 import MedCheck.models.Patient;
 import MedCheck.models.enums.Gender;
-import MedCheck.service.DepartmentService;
 import MedCheck.service.impl.DepartmentServiceImpl;
 import MedCheck.service.impl.DoctorServiceImpl;
 import MedCheck.service.impl.HospitalServiceImpl;
@@ -143,15 +142,15 @@ public class Main {
 
 
         // Бөлүмдөр
-        Department department1 = new Department(1L, "Терапия");
-        Department department2 = new Department(2L, "Хирургия");
-        Department department3 = new Department(3L, "Кардиология");
-        Department department4 = new Department(4L, "Неврология");
-        Department department5 = new Department(5L, "Педиатрия");
+        Department department1 = new Department(1L, "Терапия",doctors);
+        Department department2 = new Department(2L, "Хирургия",doctors);
+        Department department3 = new Department(3L, "Кардиология",doctors);
+        Department department4 = new Department(4L, "Неврология",doctors);
+        Department department5 = new Department(5L, "Педиатрия",doctors);
         Department department6 = new Department(6L, "Лор", doctors);
 
-        departmentService.add(1L, department1);
-        departmentService.add(1L, department2);
+        departmentService.add(3L, department1);
+        departmentService.add(2L, department2);
         departmentService.add(2L, department3);
         departmentService.add(2L, department4);
         departmentService.add(3L, department5);
@@ -160,30 +159,25 @@ public class Main {
         departmentService.add(4L, department2);
         departmentService.add(5L, department3);
         departmentService.add(5L, department4);
-        departmentService.add(1L, department3);
-        departmentService.add(6L, department6);
-        departmentService.add(6L, department2);
+        departmentService.add(1L, department6);
+        departmentService.add(5L, department6);
+        departmentService.add(4L, department2);
 
-
-//        System.out.println(departmentService.getAllDepartmentByHospital(6L));  // null болуп жатат ?
-
+//        System.out.println(departmentService.getAllDepartmentByHospital(3L));
 //        System.out.println(hospitalService.getAllHospital());
 //        System.out.println(hospitalService.getAllPatientFromHospital(1L));
 //        System.out.println(hospitalService.deleteHospitalById(1L));
 //        System.out.println(hospitalService.findHospitalById(1L));
 //        System.out.println(hospitalService.getAllHospitalByAddress("Ленин 200"));
 
-
 //        System.out.println(departmentService.getAllDepartmentByHospital(6L));
 //        System.out.println(departmentService.findDepartmentByName("Педиатрия"));
-//        System.out.println(departmentService.findDepartmentByName("Хирургия"));// не работает
-//
-//
+//        System.out.println(departmentService.findDepartmentByName("Хирургия"));
 //
 //        doctorService.assignDoctorToDepartment(3L, Collections.singletonList(1L));  // не работает
 //        System.out.println(doctorService.getAllDoctorsByHospitalId(1L));
 //        System.out.println(doctorService.getAllDoctorsByHospitalId(1L));
-//        System.out.println(doctorService.getAllDoctorsByDepartmentId(5L));   // не работает
+//        System.out.println(doctorService.getAllDoctorsByDepartmentId(2L));
 
 //        patientService.removeById(1L);
 //        System.out.println(patientService.getPatientById(1L));
